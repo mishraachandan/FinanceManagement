@@ -16,7 +16,7 @@ public class ExcelParser {
     private static final Logger logger = LoggerFactory.getLogger(ExcelParser.class);
 
     private ExcelParser(){}
-    public static List<MyObject> parseExcelFile(InputStream is) throws IOException, InvalidFormatException {
+    public static List<MyObject> parseExcelFile(InputStream is) throws IOException {
         List<MyObject> myObjects = new ArrayList<>();
         Workbook workbook = WorkbookFactory.create(is);
 

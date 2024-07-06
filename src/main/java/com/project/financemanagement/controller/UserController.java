@@ -4,12 +4,14 @@ package com.project.financemanagement.controller;
 import com.project.financemanagement.entity.User;
 import com.project.financemanagement.request.MyObject;
 import com.project.financemanagement.request.UserDto;
+import com.project.financemanagement.service.user.UserService;
 import com.project.financemanagement.serviceimpl.userimpl.UserServiceImpl;
 import com.project.financemanagement.utility.CSVParser;
 import com.project.financemanagement.utility.ExcelParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -30,7 +32,7 @@ public class UserController {
 //    private UserService userService;
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @PostMapping(value = "/addUsers")
     public ResponseEntity<String> addUsers(@RequestBody List<UserDto> userDtoList){
@@ -53,6 +55,14 @@ public class UserController {
     @GetMapping("/login")
     public String login() {
         return "login";
+    }
+
+
+    @GetMapping("/byRole/{role}")
+    @Cacheable("getDataByRole")
+    public ResponseEntity<List<String>> getDataByRole(@PathVariable("role") String role) {
+        List<String> list = userService.getByUserRole(role);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping("/uploadCsv")
@@ -89,7 +99,8 @@ public class UserController {
     }
 
     @PostMapping("/uploadExcel")
-    public ResponseEntity<List<MyObject>> uploadFileExcel(@RequestParam("file") MultipartFile file) {
+    @Cacheable("uploadFileExcel")
+    public ResponseEntity<String> uploadFileExcel(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
             logger.error("Uploaded file is empty");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -110,7 +121,12 @@ public class UserController {
 
         try (InputStream is = file.getInputStream()) {
             List<MyObject> objects = ExcelParser.parseExcelFile(is);
-            return new ResponseEntity<>(objects, HttpStatus.OK);
+
+            // get the list of all the object or check if the object is present in database if not present then add
+            // else tell that this entry is already present
+
+            String msg = userService.registerUserByExcel(objects);
+            return new ResponseEntity<>(msg, HttpStatus.OK);
 
         } catch (IOException e) {
             logger.error("IOException occurred while processing file", e);
