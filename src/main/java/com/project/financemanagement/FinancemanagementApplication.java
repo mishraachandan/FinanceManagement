@@ -6,10 +6,10 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
-public class FinanceManagementApplication {
+public class FinancemanagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FinanceManagementApplication.class, args);
+		SpringApplication.run(FinancemanagementApplication.class, args);
 	}
 
 }
