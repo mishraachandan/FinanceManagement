@@ -1,0 +1,395 @@
+2024-07-09T20:13:31.122+05:30  INFO 19240 --- [financemanagement] [main] c.p.f.FinancemanagementApplicationTests  : Starting FinancemanagementApplicationTests using Java 17.0.9 with PID 19240 (started by chand in D:\financemanagement)
+2024-07-09T20:13:31.124+05:30  INFO 19240 --- [financemanagement] [main] c.p.f.FinancemanagementApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T20:13:31.780+05:30  WARN 19240 --- [financemanagement] [main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'taskExecutor' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=batchConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/config/BatchConfig.class]] for bean 'taskExecutor' since there is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=asyncConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/async/AsyncConfig.class]] bound.
+2024-07-09T20:13:31.788+05:30  INFO 19240 --- [financemanagement] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T20:13:31.809+05:30 ERROR 19240 --- [financemanagement] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'taskExecutor', defined in class path resource [com/project/financemanagement/config/BatchConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/project/financemanagement/async/AsyncConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2024-07-09T20:13:31.813+05:30  WARN 19240 --- [financemanagement] [main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] to prepare test instance [com.project.financemanagement.FinancemanagementApplicationTests@2ec3633f]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMergedContextConfiguration@1f3165e7 testClass = com.project.financemanagement.FinancemanagementApplicationTests, locations = [], classes = [com.project.financemanagement.FinancemanagementApplication], contextInitializerClasses = [], activeProfiles = [], propertySourceDescriptors = [], propertySourceProperties = ["org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true"], contextCustomizers = [org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@69ee81fc, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@29f7cefd, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@17503f6b, org.springframework.boot.test.autoconfigure.actuate.observability.ObservabilityContextCustomizerFactory$DisableObservabilityContextCustomizer@1f, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizer@7ac296f6, org.springframework.boot.test.context.SpringBootTestAnnotation@1e0b55c2], resourceBasePath = "src/main/webapp", contextLoader = org.springframework.boot.test.context.SpringBootContextLoader, parent = null]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:180) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735) ~[na:na]
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+Caused by: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'taskExecutor' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=batchConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/config/BatchConfig.class]] for bean 'taskExecutor' since there is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=asyncConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/async/AsyncConfig.class]] bound.
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:1017) ~[spring-beans-6.1.10.jar:6.1.10]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:277) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:144) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:429) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606) ~[spring-context-6.1.10.jar:6.1.10]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137) ~[spring-boot-test-3.3.1.jar:3.3.1]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.1.10.jar:6.1.10]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.1.10.jar:6.1.10]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1463) ~[spring-boot-3.3.1.jar:3.3.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553) ~[spring-boot-test-3.3.1.jar:3.3.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137) ~[spring-boot-test-3.3.1.jar:3.3.1]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108) ~[spring-boot-test-3.3.1.jar:3.3.1]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.10.jar:6.1.10]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.10.jar:6.1.10]
+	... 73 common frames omitted
+
+2024-07-09T20:49:39.593+05:30  INFO 9876 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 9876 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T20:49:39.597+05:30  INFO 9876 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T20:49:39.669+05:30  INFO 9876 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T20:49:39.669+05:30  INFO 9876 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T20:49:40.307+05:30  WARN 9876 --- [financemanagement] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'taskExecutor' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=batchConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/config/BatchConfig.class]] for bean 'taskExecutor' since there is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=asyncConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/async/AsyncConfig.class]] bound.
+2024-07-09T20:49:40.314+05:30  INFO 9876 --- [financemanagement] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T20:49:40.333+05:30 ERROR 9876 --- [financemanagement] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'taskExecutor', defined in class path resource [com/project/financemanagement/config/BatchConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/project/financemanagement/async/AsyncConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2024-07-09T20:51:28.814+05:30  INFO 9972 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 9972 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T20:51:28.817+05:30  INFO 9972 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T20:51:28.871+05:30  INFO 9972 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T20:51:28.871+05:30  INFO 9972 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T20:51:29.541+05:30  WARN 9972 --- [financemanagement] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'taskExecutor' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=batchConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/config/BatchConfig.class]] for bean 'taskExecutor' since there is already [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=asyncConfig; factoryMethodName=taskExecutor; initMethodNames=null; destroyMethodNames=[(inferred)]; defined in class path resource [com/project/financemanagement/async/AsyncConfig.class]] bound.
+2024-07-09T20:51:29.548+05:30  INFO 9972 --- [financemanagement] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T20:51:29.564+05:30 ERROR 9972 --- [financemanagement] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'taskExecutor', defined in class path resource [com/project/financemanagement/config/BatchConfig.class], could not be registered. A bean with that name has already been defined in class path resource [com/project/financemanagement/async/AsyncConfig.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2024-07-09T20:54:45.138+05:30  INFO 12176 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 12176 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T20:54:45.141+05:30  INFO 12176 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T20:54:45.212+05:30  INFO 12176 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T20:54:45.212+05:30  INFO 12176 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T20:54:45.883+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2024-07-09T20:54:46.142+05:30  INFO 12176 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-09T20:54:46.228+05:30  INFO 12176 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 3 JPA repository interfaces.
+2024-07-09T20:54:46.696+05:30  WARN 12176 --- [financemanagement] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-09T20:54:47.175+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-09T20:54:47.195+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T20:54:47.196+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-09T20:54:47.266+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-09T20:54:47.267+05:30  INFO 12176 --- [financemanagement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2055 ms
+2024-07-09T20:54:47.509+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-09T20:54:47.577+05:30  INFO 12176 --- [financemanagement] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-09T20:54:47.621+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-09T20:54:47.983+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-09T20:54:48.018+05:30  INFO 12176 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-09T20:54:48.314+05:30  INFO 12176 --- [financemanagement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58606f1
+2024-07-09T20:54:48.315+05:30  INFO 12176 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-09T20:54:49.241+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-09T20:54:49.326+05:30  INFO 12176 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T20:54:49.369+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-09T20:54:49.798+05:30  WARN 12176 --- [financemanagement] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fileUploadController': Unsatisfied dependency expressed through field 'job': Error creating bean with name 'importUserJob' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'importUserJob' parameter 1: Error creating bean with name 'step1' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'step1' parameter 1: No qualifying bean of type 'org.springframework.batch.item.ItemProcessor<com.project.financemanagement.request.MyObject, com.project.financemanagement.request.MyObject>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-09T20:54:49.798+05:30  INFO 12176 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T20:54:49.801+05:30  INFO 12176 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T20:54:49.810+05:30  INFO 12176 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-09T20:54:49.812+05:30  INFO 12176 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-09T20:54:49.825+05:30  INFO 12176 --- [financemanagement] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T20:54:49.850+05:30 ERROR 12176 --- [financemanagement] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method step1 in com.project.financemanagement.config.BatchConfig required a bean of type 'org.springframework.batch.item.ItemProcessor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.batch.item.ItemProcessor' in your configuration.
+
+2024-07-09T20:56:55.599+05:30  INFO 19032 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 19032 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T20:56:55.602+05:30  INFO 19032 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T20:56:55.654+05:30  INFO 19032 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T20:56:55.655+05:30  INFO 19032 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T20:56:56.279+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 6 ms.
+2024-07-09T20:56:56.529+05:30  INFO 19032 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-09T20:56:56.620+05:30  INFO 19032 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 3 JPA repository interfaces.
+2024-07-09T20:56:57.105+05:30  WARN 19032 --- [financemanagement] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-09T20:56:57.542+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-09T20:56:57.556+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T20:56:57.557+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-09T20:56:57.614+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-09T20:56:57.614+05:30  INFO 19032 --- [financemanagement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1959 ms
+2024-07-09T20:56:57.811+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-09T20:56:57.883+05:30  INFO 19032 --- [financemanagement] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-09T20:56:57.921+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-09T20:56:58.259+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-09T20:56:58.287+05:30  INFO 19032 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-09T20:56:58.542+05:30  INFO 19032 --- [financemanagement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@25fd5dfd
+2024-07-09T20:56:58.543+05:30  INFO 19032 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-09T20:56:59.495+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-09T20:56:59.561+05:30  INFO 19032 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T20:56:59.618+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-09T20:57:00.067+05:30  WARN 19032 --- [financemanagement] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fileUploadController': Unsatisfied dependency expressed through field 'job': Error creating bean with name 'importUserJob' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'importUserJob' parameter 1: Error creating bean with name 'step1' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'step1' parameter 1: No qualifying bean of type 'org.springframework.batch.item.ItemProcessor<com.project.financemanagement.request.MyObject, com.project.financemanagement.request.MyObject>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-09T20:57:00.067+05:30  INFO 19032 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T20:57:00.071+05:30  INFO 19032 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T20:57:00.080+05:30  INFO 19032 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-09T20:57:00.083+05:30  INFO 19032 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-09T20:57:00.093+05:30  INFO 19032 --- [financemanagement] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T20:57:00.119+05:30 ERROR 19032 --- [financemanagement] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method step1 in com.project.financemanagement.config.BatchConfig required a bean of type 'org.springframework.batch.item.ItemProcessor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.batch.item.ItemProcessor' in your configuration.
+
+2024-07-09T20:57:34.701+05:30  INFO 17388 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 17388 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T20:57:34.703+05:30  INFO 17388 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T20:57:34.761+05:30  INFO 17388 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T20:57:34.761+05:30  INFO 17388 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T20:57:35.440+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 9 ms.
+2024-07-09T20:57:35.732+05:30  INFO 17388 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-09T20:57:35.803+05:30  INFO 17388 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 3 JPA repository interfaces.
+2024-07-09T20:57:36.233+05:30  WARN 17388 --- [financemanagement] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-09T20:57:36.668+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-09T20:57:36.682+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T20:57:36.682+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-09T20:57:36.731+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-09T20:57:36.732+05:30  INFO 17388 --- [financemanagement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1969 ms
+2024-07-09T20:57:36.919+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-09T20:57:36.995+05:30  INFO 17388 --- [financemanagement] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-09T20:57:37.040+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-09T20:57:37.431+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-09T20:57:37.460+05:30  INFO 17388 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-09T20:57:37.756+05:30  INFO 17388 --- [financemanagement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23bf6a7f
+2024-07-09T20:57:37.757+05:30  INFO 17388 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-09T20:57:38.657+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-09T20:57:38.724+05:30  INFO 17388 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T20:57:38.768+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-09T20:57:39.145+05:30  WARN 17388 --- [financemanagement] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fileUploadController': Unsatisfied dependency expressed through field 'job': Error creating bean with name 'importUserJob' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'importUserJob' parameter 1: Error creating bean with name 'step1' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'step1' parameter 1: No qualifying bean of type 'org.springframework.batch.item.ItemProcessor<com.project.financemanagement.request.MyObject, com.project.financemanagement.request.MyObject>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-09T20:57:39.146+05:30  INFO 17388 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T20:57:39.150+05:30  INFO 17388 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T20:57:39.161+05:30  INFO 17388 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-09T20:57:39.164+05:30  INFO 17388 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-09T20:57:39.174+05:30  INFO 17388 --- [financemanagement] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T20:57:39.199+05:30 ERROR 17388 --- [financemanagement] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of method step1 in com.project.financemanagement.config.BatchConfig required a bean of type 'org.springframework.batch.item.ItemProcessor' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.batch.item.ItemProcessor' in your configuration.
+
+2024-07-09T21:23:00.431+05:30  INFO 14520 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 14520 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T21:23:00.434+05:30  INFO 14520 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T21:23:00.495+05:30  INFO 14520 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T21:23:00.495+05:30  INFO 14520 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T21:23:01.111+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2024-07-09T21:23:01.401+05:30  INFO 14520 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-09T21:23:01.483+05:30  INFO 14520 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 3 JPA repository interfaces.
+2024-07-09T21:23:01.967+05:30  WARN 14520 --- [financemanagement] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-09T21:23:02.463+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-09T21:23:02.478+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T21:23:02.478+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-09T21:23:02.547+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-09T21:23:02.547+05:30  INFO 14520 --- [financemanagement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2052 ms
+2024-07-09T21:23:02.736+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-09T21:23:02.795+05:30  INFO 14520 --- [financemanagement] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-09T21:23:02.830+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-09T21:23:03.184+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-09T21:23:03.209+05:30  INFO 14520 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-09T21:23:03.454+05:30  INFO 14520 --- [financemanagement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57de3a23
+2024-07-09T21:23:03.455+05:30  INFO 14520 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-09T21:23:04.315+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-09T21:23:04.381+05:30  INFO 14520 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T21:23:04.429+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-09T21:23:04.795+05:30  WARN 14520 --- [financemanagement] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'fileUploadController': Unsatisfied dependency expressed through field 'job': Error creating bean with name 'importUserJob' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'importUserJob' parameter 1: Error creating bean with name 'step1' defined in class path resource [com/project/financemanagement/config/BatchConfig.class]: Unsatisfied dependency expressed through method 'step1' parameter 0: No qualifying bean of type 'org.springframework.batch.item.ItemReader<com.project.financemanagement.entity.User>' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-07-09T21:23:04.795+05:30  INFO 14520 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T21:23:04.799+05:30  INFO 14520 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T21:23:04.810+05:30  INFO 14520 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-09T21:23:04.814+05:30  INFO 14520 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-09T21:23:04.825+05:30  INFO 14520 --- [financemanagement] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T21:23:04.861+05:30 ERROR 14520 --- [financemanagement] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method step1 in com.project.financemanagement.config.BatchConfig required a bean of type 'org.springframework.batch.item.ItemReader' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.batch.item.ItemReader' in your configuration.
+
+2024-07-09T21:24:46.930+05:30  INFO 20012 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Starting FinancemanagementApplication using Java 17.0.9 with PID 20012 (D:\financemanagement\target\classes started by chand in D:\financemanagement)
+2024-07-09T21:24:46.933+05:30  INFO 20012 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T21:24:46.989+05:30  INFO 20012 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-09T21:24:46.990+05:30  INFO 20012 --- [financemanagement] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-09T21:24:47.630+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.s.b.c.c.annotation.BatchRegistrar      : Finished Spring Batch infrastructure beans configuration in 5 ms.
+2024-07-09T21:24:47.901+05:30  INFO 20012 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-09T21:24:47.989+05:30  INFO 20012 --- [financemanagement] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 3 JPA repository interfaces.
+2024-07-09T21:24:48.419+05:30  WARN 20012 --- [financemanagement] [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'jobRegistry' of type [org.springframework.batch.core.configuration.support.MapJobRegistry] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [jobRegistryBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-09T21:24:48.807+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-07-09T21:24:48.821+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T21:24:48.822+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-07-09T21:24:48.885+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-09T21:24:48.886+05:30  INFO 20012 --- [financemanagement] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1896 ms
+2024-07-09T21:24:49.112+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-09T21:24:49.176+05:30  INFO 20012 --- [financemanagement] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-09T21:24:49.211+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-09T21:24:49.570+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-09T21:24:49.612+05:30  INFO 20012 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-09T21:24:49.877+05:30  INFO 20012 --- [financemanagement] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c947670
+2024-07-09T21:24:49.879+05:30  INFO 20012 --- [financemanagement] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-09T21:24:50.815+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-09T21:24:50.877+05:30  INFO 20012 --- [financemanagement] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T21:24:50.920+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-09T21:24:51.374+05:30  INFO 20012 --- [financemanagement] [restartedMain] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2024-07-09T21:24:51.389+05:30  INFO 20012 --- [financemanagement] [restartedMain] .c.a.BatchObservabilityBeanPostProcessor : No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2024-07-09T21:24:51.520+05:30  WARN 20012 --- [financemanagement] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-09T21:24:51.593+05:30  INFO 20012 --- [financemanagement] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-07-09T21:24:52.179+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-09T21:24:52.223+05:30  INFO 20012 --- [financemanagement] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-07-09T21:24:52.241+05:30  INFO 20012 --- [financemanagement] [restartedMain] c.p.f.FinancemanagementApplication       : Started FinancemanagementApplication in 5.712 seconds (process running for 6.165)
+2024-07-09T21:24:56.317+05:30  INFO 20012 --- [financemanagement] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T21:24:56.321+05:30  INFO 20012 --- [financemanagement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T21:24:56.337+05:30  INFO 20012 --- [financemanagement] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

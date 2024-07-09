@@ -10,14 +10,20 @@ import com.project.financemanagement.utility.CSVParser;
 import com.project.financemanagement.utility.ExcelParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -30,6 +36,12 @@ public class UserController {
 
 //    @Autowired
 //    private UserService userService;
+
+    @Autowired
+    private JobLauncher jobLauncher;
+
+    @Autowired
+    private Job job;
 
     @Autowired
     private UserService userService;
@@ -119,22 +131,36 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.UNSUPPORTED_MEDIA_TYPE);
         }
 
-        try (InputStream is = file.getInputStream()) {
-            List<MyObject> objects = ExcelParser.parseExcelFile(is);
+        String filePath = saveFile(file);
 
-            // get the list of all the object or check if the object is present in database if not present then add
-            // else tell that this entry is already present
+        // Launch the job asynchronously
+        runJobAsync(filePath);
 
-            String msg = userService.registerUserByExcel(objects);
-            return new ResponseEntity<>(msg, HttpStatus.OK);
+        return ResponseEntity.ok("File uploaded successfully. Processing in background.");
+    }
 
-        } catch (IOException e) {
-            logger.error("IOException occurred while processing file", e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    @Async
+    public void runJobAsync(String filePath) {
+        try {
+            JobParameters jobParameters = new JobParametersBuilder()
+                    .addString("filePath", filePath)
+                    .addLong("time", System.currentTimeMillis())
+                    .toJobParameters();
+            jobLauncher.run(job, jobParameters);
         } catch (Exception e) {
-            logger.error("Unexpected error occurred", e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            e.printStackTrace();
         }
     }
+
+    private String saveFile(MultipartFile file) {
+        String filePath = "D:\\financemanagement\\files" + file.getOriginalFilename();
+        try {
+            file.transferTo(new File(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return filePath;
+    }
+
 }
 

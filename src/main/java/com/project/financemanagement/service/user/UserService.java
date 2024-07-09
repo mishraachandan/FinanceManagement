@@ -15,6 +15,7 @@ public interface UserService {
     boolean isUserPresent(String userName);
     String registerUserByExcel(List<MyObject> objectList);
 
+    // using the chuck
     List<String> getByUserRole(String role);
 }
 
