@@ -10,7 +10,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CsvFileResponse {
+public class FileResponse {
     private List<MyObject> objectList;
     private int httpStatusCode ;
+    private String msg;
 }
