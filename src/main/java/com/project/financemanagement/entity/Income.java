@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Entity
-@EqualsAndHashCode
 @Getter
 @Setter
 public class Income {

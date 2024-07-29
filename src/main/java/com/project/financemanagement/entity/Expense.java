@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Entity
-@EqualsAndHashCode
 @Getter
 @Setter
 public class Expense {
@@ -28,6 +27,4 @@ public class Expense {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    // getters and setters
 }
