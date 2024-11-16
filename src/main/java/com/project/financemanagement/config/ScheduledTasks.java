@@ -15,12 +15,8 @@ public class ScheduledTasks {
 //    }
 
 //    @Scheduled(fixedRate = 5000) // This will run every 5 seconds
-    @Scheduled(cron = "* *  * * * ?")
-    public void performTaskAtFixedRate() {
-
-        System.out.println("Fixed rate task executed at: " + new Date().getSeconds());
-        // Add your task logic here
-    }
+//
+    
 
 //    @Scheduled(fixedDelay = 10000, initialDelay = 5000) // This will run with a fixed delay of 10 seconds after the previous completion
 //    public void performTaskWithFixedDelay() {
