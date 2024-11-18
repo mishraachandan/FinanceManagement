@@ -8,12 +8,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class LatestSecurityConfig {
 
     private final UserServiceImpl userDetailsService;
@@ -31,13 +33,14 @@ public class LatestSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/register").permitAll()
-                        .requestMatchers("/api/auth/getDataByRole").hasRole("Project Manager")  // Only users with "ADMIN" role can access these URLs
+                        .requestMatchers("/api/auth/getDataByRole/{role}").hasRole("Project Manager")  // Only users with "ADMIN" role can access these URLs
 //                        .requestMatchers("/api/user/**").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/api/supervisors", true)
+                        .defaultSuccessUrl("/api/auth/login", true)
+                        .failureUrl("/api/auth/UnsuccessfulLogin")
                         .permitAll()
                 )
                 .logout(logout -> logout

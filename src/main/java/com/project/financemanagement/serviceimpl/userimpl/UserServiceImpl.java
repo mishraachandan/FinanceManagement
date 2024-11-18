@@ -1,6 +1,7 @@
 package com.project.financemanagement.serviceimpl.userimpl;
 
 import com.project.financemanagement.entity.User;
+import com.project.financemanagement.exception.CustomException;
 import com.project.financemanagement.repository.UserRepository;
 import com.project.financemanagement.request.MyObject;
 import com.project.financemanagement.request.UserDto;
@@ -10,6 +11,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +24,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import javax.swing.text.html.Option;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service("userServiceImpl")
@@ -97,10 +104,22 @@ public class UserServiceImpl implements UserService , UserDetailsService {
     }
 
     @Override
-    public List<String> getByUserRole(String role) {
-        List<User> user = userRepository.findByRole(role);
-        return user.stream().map(User::getUsername).toList();
+    public Page<String> getByUserRole(String role, int page, int size, Sort sort) {
+        // Create Pageable object with pagination and sorting
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        // Fetch paginated and sorted data from the repository
+        Page<User> userPage = userRepository.findByRole(role, pageable);
+
+        // Check if there are no users found
+        if (userPage.isEmpty()) {
+            throw new CustomException("No users were found for this role.");
+        }
+
+        // Map the User objects to their usernames and return as a Page<String>
+        return userPage.map(User::getUsername);
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -108,10 +127,12 @@ public class UserServiceImpl implements UserService , UserDetailsService {
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("User not found: " + username);
         }
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.get().getUsername())
-                .password(user.get().getPassword())
-                .roles(user.get().getRole())
-                .build();
+        return new org.springframework.security.core.userdetails.User(
+                user.get().getUsername(),
+                user.get().getPassword(),
+                user.get().getRoles().stream()
+                        .map(role -> new SimpleGrantedAuthority("ROLE_"+role.toUpperCase()))
+                        .toList()
+        );
     }
 }
