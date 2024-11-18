@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/auth")
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);

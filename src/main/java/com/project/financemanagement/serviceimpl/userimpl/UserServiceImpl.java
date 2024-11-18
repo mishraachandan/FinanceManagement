@@ -10,14 +10,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
+import javax.swing.text.html.Option;
 import java.util.*;
 
 @Slf4j
-@Service
-public class UserServiceImpl implements UserService {
+@Service("userServiceImpl")
+public class UserServiceImpl implements UserService , UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -96,5 +100,18 @@ public class UserServiceImpl implements UserService {
     public List<String> getByUserRole(String role) {
         List<User> user = userRepository.findByRole(role);
         return user.stream().map(User::getUsername).toList();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isEmpty()) {
+            throw new UsernameNotFoundException("User not found: " + username);
+        }
+        return org.springframework.security.core.userdetails.User
+                .withUsername(user.get().getUsername())
+                .password(user.get().getPassword())
+                .roles(user.get().getRole())
+                .build();
     }
 }
